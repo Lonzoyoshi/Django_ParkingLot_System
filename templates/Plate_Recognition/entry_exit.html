@@ -1,0 +1,10 @@
+<form method="post" action="{% url 'car_entry' %}">
+    {% csrf_token %}
+    <input type="text" name="plate_no" placeholder="车牌号">
+    <button type="submit">入库</button>
+</form>
+<form method="post" action="{% url 'car_exit' %}">
+    {% csrf_token %}
+    <input type="text" name="plate_no" placeholder="车牌号">
+    <button type="submit">出库</button>
+</form>

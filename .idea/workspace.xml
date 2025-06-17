@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4c391e4b-33f6-4cc3-9bb5-5c0689e08237" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Django_Plate_Recognition.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plate_Recognition/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/ccpd_process.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/argoverse_hd.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/coco.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/coco128.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/hyp.finetune.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/hyp.scratch.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/plateAndCar.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/retinaface2yolo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/scripts/get_argoverse_hd.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/scripts/get_coco.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/scripts/get_voc.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/train2yolo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/val2yolo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/val2yolo_for_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/voc.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/widerface.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/demo.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/detect_demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/detect_plate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/export.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/hubconf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/image/README/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/image/README/105384078.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/image/README/test_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/image/README/weixian.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/Quicker_20220930_180856.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/Quicker_20220930_180919.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/Quicker_20220930_180938.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/Quicker_20220930_181044.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/double_yellow.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/hongkang1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/moto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/police.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/shi_lin_guan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/single_blue.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/single_green.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/single_yellow.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/tmp8F1F.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/tmpA5E3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/xue.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/json2yolo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/blazeface.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/blazeface_fpn.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/common.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/experimental.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5l.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5l6.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5m.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5m6.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5n-0.5.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5n.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5n6.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5s.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5s6.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/onnx_infer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/openvino_infer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/plate_recognition/double_plate_split_merge.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/plate_recognition/plateNet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/plate_recognition/plate_rec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/readme/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (3).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (4).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (5).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (6).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test_widerface.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/imgs/yolov5l-face.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/imgs/yolov5m-face.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/imgs/yolov5n-0.5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/imgs/yolov5n-face.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/imgs/yolov5s-face.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/readme_CN.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/sample.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/speed.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/trt_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/activations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/autoanchor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/aws/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/aws/mime.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/aws/resume.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/aws/userdata.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/cv_puttext.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/datasets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/face_datasets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/general.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/google_app_engine/app.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/google_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/infer_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/loss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/metrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/plots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/torch_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/wandb_logging/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/wandb_logging/log_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/wandb_logging/wandb_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/weights/download_weights.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/weights/plate_detect.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/weights/plate_rec_color.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/widerface_evaluate/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/widerface_evaluate/box_overlaps.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/widerface_evaluate/evaluation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/widerface_evaluate/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parking_system/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/zh.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/entry_exit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/image_detection.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/live_camera.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/load_params.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/loading.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/predict.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/video_detection.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/parking_system/cameras.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/parking_system/customer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/parking_system/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/parking_system/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/parking_system/manage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/parking_system/register.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2yX2vGOllIMWYlRlkXdQX9Lwvhc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django 服务器.Django_Plate_Recognition.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "M:/A_DeepLearning/Django_Plate_Recognition/templates/parking_system",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.language.and.region",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="M:\A_DeepLearning\Django_Plate_Recognition\templates\parking_system" />
+      <recent name="M:\A_DeepLearning\Django_Plate_Recognition" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="M:\A_DeepLearning\Django_Plate_Recognition\templates" />
+      <recent name="M:\A_DeepLearning\Django_Plate_Recognition\Plate_Recognition\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Django_Plate_Recognition" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Django_Plate_Recognition" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="Django_Plate_Recognition.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-PY-251.26094.141" />
+        <option value="bundled-python-sdk-9f8e2b94138c-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26094.141" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="4c391e4b-33f6-4cc3-9bb5-5c0689e08237" name="更改" comment="" />
+      <created>1749966825396</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749966825396</updated>
+      <workItem from="1749966826369" duration="22282000" />
+      <workItem from="1750041762956" duration="21597000" />
+      <workItem from="1750071631845" duration="5671000" />
+      <workItem from="1750081379922" duration="2607000" />
+      <workItem from="1750122834953" duration="24269000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

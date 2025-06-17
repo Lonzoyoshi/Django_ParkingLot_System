@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>管理系统 - 智能停车场</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <style>
+        /* 基础样式 */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #4e73df;
+        }
+
+        .nav-pills .nav-link {
+            color: #5a5c69;
+            transition: all 0.3s ease;
+        }
+
+        .nav-pills .nav-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* 卡片样式 */
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 表格样式 */
+        .records-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* 摄像头监控样式 */
+        .camera-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .camera-container:hover {
+            transform: scale(1.02);
+        }
+
+        .camera-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 模态框样式 */
+        .modal-content {
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-header {
+            background: #4e73df;
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        /* 在已有的style标签中添加 */
+        .nav-link.text-danger {
+            color: #dc3545 !important;
+        }
+
+        .nav-link.text-danger:hover {
+            background-color: #dc3545;
+            color: white !important;
+        }
+
+        /* 改进标题样式 */
+        .stat-card h5 {
+            color: #4e73df;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card h3 {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            transition: all 0.3s ease;
+            margin: 1rem;
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-sm {
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-sm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-warning {
+            color: #000;
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        .btn-warning:hover {
+            color: #000;
+            background-color: #ffca2c;
+            border-color: #ffc720;
+        }
+
+        .navbar .container-fluid {
+            padding: 0.5rem 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid py-4">
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 rounded-3 shadow">
+        <div class="container-fluid">
+        <span class="navbar-brand">
+            <i class="fas fa-parking me-2"></i>
+            智能停车场管理系统
+        </span>
+            <div class="navbar-nav ms-auto d-flex align-items-center">
+                <a href="{% url 'load_params' %}" class="btn btn-warning btn-sm me-2">
+                    <i class="fas fa-tools me-1"></i>
+                    调试工具
+                </a>
+                <a href="{% url 'logout' %}" class="btn btn-light btn-sm">
+                    <i class="fas fa-sign-out-alt me-1"></i>
+                    退出登录
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#dashboard-section" data-section="dashboard">仪表盘</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#camera-section" data-section="camera">实时监控</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#records-section" data-section="records">停车记录</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="col-md-9">
+            <!-- 仪表盘部分 -->
+            <div id="dashboard-section" class="section">
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="stat-card p-4">
+                            <h5>今日收入</h5>
+                            <h3 class="mb-0">¥<span id="today-income">0</span></h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card p-4">
+                            <h5>今日车流量</h5>
+                            <h3 class="mb-0"><span id="today-cars">0</span> 辆</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card p-4">
+                            <h5>当前停车数</h5>
+                            <h3 class="mb-0"><span id="parked-cars">0</span> 辆</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card p-4">
+                            <h5>剩余车位</h5>
+                            <h3 class="mb-0"><span id="available-spaces">0</span> 个</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 在场车辆列表 -->
+                <div class="records-container mt-4">
+                    <h4>在场车辆</h4>
+                    <div id="parked-list" class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>车牌号</th>
+                                <th>入场时间</th>
+                                <th>车牌颜色</th>
+                            </tr>
+                            </thead>
+                            <tbody id="parked-cars-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 摄像头监控部分 -->
+            <div id="camera-section" class="section" style="display: none;">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="camera-container">
+                            <h5 class="mb-3">入场摄像头</h5>
+                            <img id="entry-camera" class="img-fluid" src="" alt="入场摄像头">
+                            <div class="camera-controls">
+                                <button class="btn btn-primary me-2" onclick="toggleCamera('entry')">
+                                    开启/关闭
+                                </button>
+                            </div>
+                            <div id="entry-plate-info" class="mt-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="camera-container">
+                            <h5 class="mb-3">出场摄像头</h5>
+                            <img id="exit-camera" class="img-fluid" src="" alt="出场摄像头">
+                            <div class="camera-controls">
+                                <button class="btn btn-primary me-2" onclick="toggleCamera('exit')">
+                                    开启/关闭
+                                </button>
+                            </div>
+                            <div id="exit-plate-info" class="mt-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 停车记录部分 -->
+            <div id="records-section" class="section records-container" style="display: none;">
+                <h4>停车记录</h4>
+                <table id="records-table" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>车牌号</th>
+                        <th>入场时间</th>
+                        <th>出场时间</th>
+                        <th>费用</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 编辑记录的模态框 -->
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">编辑停车记录</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <input type="hidden" id="record-id">
+                    <div class="mb-3">
+                        <label class="form-label">车牌号</label>
+                        <input type="text" class="form-control" id="edit-plate-no">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">入场时间</label>
+                        <input type="datetime-local" class="form-control" id="edit-entry-time">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">出场时间</label>
+                        <input type="datetime-local" class="form-control" id="edit-exit-time">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="saveRecord()">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    let recordsTable;
+    let activeCameras = {'entry': false, 'exit': false};
+    let cameraIntervals = {'entry': null, 'exit': null};
+
+    // 初始化页面
+    document.addEventListener('DOMContentLoaded', function () {
+        // 初始化DataTable
+        recordsTable = $('#records-table').DataTable({
+            ajax: '/parking/get_records/',
+            columns: [
+                {data: 'plate_no'},
+                {data: 'entry_time'},
+                {data: 'exit_time'},
+                {data: 'fee'},
+                {
+                    data: 'id',
+                    render: function (data) {
+                        return `
+                        <button onclick="editRecord(${data})" class="btn btn-sm btn-primary me-1">编辑</button>
+                        <button onclick="deleteRecord(${data})" class="btn btn-sm btn-danger">删除</button>
+                    `;
+                    }
+                }
+            ],
+            language: {
+                url: "//cdn.datatables.net/plug-ins/1.11.5/i18n/zh.json"
+            }
+        });
+
+        // 导航切换
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                // 移除所有active类
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                // 添加active类到当前点击的链接
+                this.classList.add('active');
+
+                // 隐藏所有section
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // 显示目标section
+                const targetId = this.getAttribute('data-section') + '-section';
+                document.getElementById(targetId).style.display = 'block';
+            });
+        });
+
+        // 定时更新统计数据
+        updateStats();
+        setInterval(updateStats, 3000);
+    });
+
+    // 获取CSRF Token
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // 更新统计数据
+    function updateStats() {
+        fetch('/parking/get_stats/')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('网络请求失败');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('收到的数据:', data);
+                // 更新数值显示
+                document.getElementById('today-income').textContent =
+                    (data.today_income || 0).toFixed(2);
+                document.getElementById('today-cars').textContent =
+                    data.today_cars || 0;
+                document.getElementById('parked-cars').textContent =
+                    data.parked_count || 0;
+                // 直接使用后端返回的available_spaces
+                document.getElementById('available-spaces').textContent =
+                    data.available_spaces || 0;
+
+                // 更新在场车辆列表
+                const tbody = document.getElementById('parked-cars-body');
+                tbody.innerHTML = '';
+                if (data.parked_list && Array.isArray(data.parked_list)) {
+                    data.parked_list.forEach(car => {
+                        tbody.innerHTML += `
+                    <tr>
+                        <td>${car.plate_no || '--'}</td>
+                        <td>${car.entry_time || '--'}</td>
+                        <td>${car.plate_color || '未知'}</td>
+                    </tr>`;
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('数据更新失败:', error);
+            });
+    }
+
+
+    // 开关摄像头
+    function toggleCamera(mode) {
+        if (!activeCameras[mode]) {
+            // 启动摄像头
+            fetch(`/parking/start_camera/${mode}/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        activeCameras[mode] = true;
+                        startCameraUpdate(mode);
+                    }
+                });
+        } else {
+            // 停止摄像头
+            fetch(`/parking/stop_camera/${mode}/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        activeCameras[mode] = false;
+                        stopCameraUpdate(mode);
+                    }
+                });
+        }
+    }
+
+    // 开始更新摄像头画面
+    function startCameraUpdate(mode) {
+        if (cameraIntervals[mode]) {
+            clearInterval(cameraIntervals[mode]);
+        }
+        cameraIntervals[mode] = setInterval(() => {
+            if (activeCameras[mode]) {
+                updateCameraFrame(mode);
+            }
+        }, 100);
+    }
+
+    // 停止更新摄像头画面
+    function stopCameraUpdate(mode) {
+        if (cameraIntervals[mode]) {
+            clearInterval(cameraIntervals[mode]);
+            cameraIntervals[mode] = null;
+        }
+    }
+
+    // 更新摄像头画面
+    function updateCameraFrame(mode) {
+        fetch(`/parking/get_camera_frame/${mode}/`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    document.getElementById(`${mode}-camera`).src = data.image_url;
+                    if (data.plate_info) {
+                        document.getElementById(`${mode}-plate-info`).textContent = data.plate_info;
+                    }
+                }
+            });
+    }
+
+    // 编辑记录
+    function editRecord(id) {
+        fetch(`/parking/get_record/${id}/`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('record-id').value = data.id;
+                document.getElementById('edit-plate-no').value = data.plate_no;
+                document.getElementById('edit-entry-time').value = data.entry_time.slice(0, 16);
+                if (data.exit_time) {
+                    document.getElementById('edit-exit-time').value = data.exit_time.slice(0, 16);
+                } else {
+                    document.getElementById('edit-exit-time').value = '';
+                }
+                new bootstrap.Modal(document.getElementById('editModal')).show();
+            });
+    }
+
+    // 保存记录
+    function saveRecord() {
+        const data = {
+            id: document.getElementById('record-id').value,
+            plate_no: document.getElementById('edit-plate-no').value,
+            entry_time: document.getElementById('edit-entry-time').value,
+            exit_time: document.getElementById('edit-exit-time').value
+        };
+
+        fetch('/parking/update_record/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    bootstrap.Modal.getInstance(document.getElementById('editModal')).hide();
+                    recordsTable.ajax.reload();
+                    updateStats();
+                } else {
+                    alert('保存失败: ' + data.message);
+                }
+            });
+    }
+
+    // 删除记录
+    function deleteRecord(id) {
+        if (confirm('确定要删除这条记录吗？')) {
+            fetch(`/parking/delete_record/${id}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        recordsTable.ajax.reload();
+                        updateStats();
+                    } else {
+                        alert('删除失败: ' + data.message);
+                    }
+                });
+        }
+    }
+
+    // 在页面加载完成后立即获取数据
+    document.addEventListener('DOMContentLoaded', function () {
+        // 立即加载一次数据
+        updateStats();
+        loadRecords();
+
+        // 设置定时更新
+        setInterval(updateStats, 3000);
+        setInterval(loadRecords, 3000);
+    });
+
+    function loadRecords() {
+        fetch('/parking/get_records/')
+            .then(response => response.json())
+            .then(data => {
+                if (data.records && data.records.length > 0) {
+                    recordsTable.clear();
+                    recordsTable.rows.add(data.records);
+                    recordsTable.draw();
+                }
+            })
+            .catch(error => console.error('Error loading records:', error));
+    }
+</script>
+</body>
+</html>

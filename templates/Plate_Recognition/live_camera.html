@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>摄像头实时检测</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>摄像头实时检测</h1>
+    <div class="mb-3">
+        <h3>当前模式: <span id="mode-text" class="badge bg-primary">{% if camera_mode == 'entry' %}入库{% else %}出库{% endif %}</span></h3>
+        <button id="toggle-mode" class="btn btn-warning">切换入库/出库</button>
+    </div>
+    <img id="video-stream" src="/static/result/temp.png" style="width: 100%; max-width: 800px; border: 1px solid #ccc;">
+    <div class="mt-3">
+        <a href="/plate/stop_camera/" class="btn btn-danger">停止摄像头</a>
+        <a href="/plate/load_params/" class="btn btn-secondary">返回加载参数页面</a>
+    </div>
+    <div id="plate-results" class="mt-3"></div>
+</div>
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    const csrftoken = getCookie('csrftoken');
+
+    setInterval(function () {
+        var img = document.getElementById('video-stream');
+        img.src = '/static/result/temp.png?t=' + new Date().getTime();
+
+        fetch('/plate/import_plates/', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrftoken
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success' && data.plate_no) {
+                // 显示识别结果
+                const plateInfo = document.createElement('div');
+                plateInfo.className = 'alert alert-success mt-2';
+                plateInfo.textContent = `${data.mode === 'entry' ? '入库' : '出库'}记录: ${data.plate_no}`;
+
+                let resultsContainer = document.getElementById('plate-results');
+                resultsContainer.insertBefore(plateInfo, resultsContainer.firstChild);
+
+                // 最多显示5条记录
+                if (resultsContainer.children.length > 5) {
+                    resultsContainer.removeChild(resultsContainer.lastChild);
+                }
+            }
+        });
+    }, 200);
+
+    document.getElementById('toggle-mode').onclick = function () {
+        fetch('/plate/toggle_camera_mode/', {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('mode-text').innerText = 
+                data.mode === 'entry' ? '入库' : '出库';
+            location.reload();  // 刷新页面以确保状态同步
+        });
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

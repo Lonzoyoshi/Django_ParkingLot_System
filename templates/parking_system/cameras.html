@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>双摄像头监控 - 智能停车场</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .camera-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .camera-feed {
+            width: 100%;
+            max-width: 640px;
+            border-radius: 5px;
+        }
+        .records-container {
+            height: 200px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'manage' %}">停车场管理系统</a>
+            <span class="navbar-text">双摄像头监控</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="camera-container position-relative">
+                    <span id="entry-status" class="status-badge badge bg-secondary">已停止</span>
+                    <h3>入库摄像头</h3>
+                    <img id="entry-feed" class="camera-feed mb-3" src="" alt="入库摄像头">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <button class="btn btn-primary" onclick="toggleCamera('entry')">开启/关闭</button>
+                        <span id="entry-info" class="text-muted">等待开启...</span>
+                    </div>
+                    <div class="records-container" id="entry-records"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="camera-container position-relative">
+                    <span id="exit-status" class="status-badge badge bg-secondary">已停止</span>

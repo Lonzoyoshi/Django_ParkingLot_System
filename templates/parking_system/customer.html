@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>停车场车位信息</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .big-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4e73df;
+        }
+        .parked-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'logout' %}" class="btn btn-outline-dark logout-btn">
+        <i class="fas fa-sign-out-alt"></i> 退出登录
+    </a>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h2 class="text-center mb-4">实时车位信息</h2>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="info-card text-center">
+                            <h5><i class="fas fa-car"></i> 总车位</h5>
+                            <div class="big-number" id="total-spaces">{{ total_spaces }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-card text-center">
+                            <h5><i class="fas fa-parking"></i> 已停车位</h5>
+                            <div class="big-number" id="parked-count">{{ parked_count }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-card text-center">
+                            <h5><i class="fas fa-check-circle"></i> 空余车位</h5>
+                            <div class="big-number" id="available-spaces">{{ available_spaces }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card mt-4">
+                    <h5><i class="fas fa-list"></i> 当前在场车辆</h5>
+                    <div class="parked-list">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>车牌号</th>
+                                    <th>颜色</th>
+                                    <th>入场时间</th>
+                                </tr>
+                            </thead>
+                            <tbody id="parked-list">
+                                {% for car in parked_list %}
+                                <tr>
+                                    <td>{{ car.plate_no }}</td>
+                                    <td>{{ car.plate_color }}</td>
+                                    <td>{{ car.entry_time }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateInfo() {
+            fetch('/parking/stats/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('total-spaces').textContent = data.total_spaces;
+                    document.getElementById('parked-count').textContent = data.parked_count;
+                    document.getElementById('available-spaces').textContent = data.available_spaces;
+
+                    const parkedList = document.getElementById('parked-list');
+                    parkedList.innerHTML = '';
+                    data.parked_list.forEach(car => {
+                        parkedList.innerHTML += `
+                            <tr>
+                                <td>${car.plate_no}</td>
+                                <td>${car.plate_color}</td>
+                                <td>${car.entry_time}</td>
+                            </tr>
+                        `;
+                    });
+                });
+        }
+
+        // 页面加载后立即更新一次
+        updateInfo();
+        // 每4秒更新一次数据
+        setInterval(updateInfo, 4000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

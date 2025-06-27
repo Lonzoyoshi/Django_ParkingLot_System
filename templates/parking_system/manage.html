@@ -170,10 +170,14 @@
             <i class="fas fa-parking me-2"></i>
             智能停车场管理系统
         </span>
-            <div class="navbar-nav ms-auto d-flex align-items-center">
-                <a href="{% url 'load_params' %}" class="btn btn-warning btn-sm me-2">
+            <div class="navbar-nav ms-auto d-flex align-items-center gap-2">
+                <a href="{% url 'load_params' %}" class="btn btn-warning btn-sm">
                     <i class="fas fa-tools me-1"></i>
                     调试工具
+                </a>
+                <a href="{% url 'view_logs' %}" class="btn btn-info btn-sm">
+                    <i class="fas fa-history me-1"></i>
+                    系统日志
                 </a>
                 <a href="{% url 'logout' %}" class="btn btn-light btn-sm">
                     <i class="fas fa-sign-out-alt me-1"></i>
@@ -287,6 +291,7 @@
                         <th>入场时间</th>
                         <th>出场时间</th>
                         <th>费用</th>
+                        <th>状态</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -350,15 +355,24 @@
                 {data: 'exit_time'},
                 {data: 'fee'},
                 {
+                    data: 'status',  // 添加状态列
+                    render: function (data) {
+                        return data === '在场' ?
+                            '<span class="badge bg-success">在场</span>' :
+                            '<span class="badge bg-secondary">已离场</span>';
+                    }
+                },
+                {
                     data: 'id',
                     render: function (data) {
                         return `
-                        <button onclick="editRecord(${data})" class="btn btn-sm btn-primary me-1">编辑</button>
-                        <button onclick="deleteRecord(${data})" class="btn btn-sm btn-danger">删除</button>
-                    `;
+                    <button onclick="editRecord(${data})" class="btn btn-sm btn-primary me-1">编辑</button>
+                    <button onclick="deleteRecord(${data})" class="btn btn-sm btn-danger">删除</button>
+                `;
                     }
                 }
             ],
+            order: [[4, 'asc'], [1, 'desc']], // 优先按状态升序(在场在前),然后按入场时间降序
             language: {
                 url: "//cdn.datatables.net/plug-ins/1.11.5/i18n/zh.json"
             }
@@ -585,16 +599,48 @@
     });
 
     function loadRecords() {
+        // 保存当前页码和排序状态
+        let currentPage = recordsTable.page.info().page;
+        let currentOrder = recordsTable.order();
+
         fetch('/parking/get_records/')
             .then(response => response.json())
             .then(data => {
+                if (data.status === 'error') {
+                    console.error(data.message);
+                    return;
+                }
+
+                // 比较新数据和当前数据是否有变化
+                let currentData = recordsTable.data().toArray();
+                let hasChanges = false;
+
                 if (data.records && data.records.length > 0) {
-                    recordsTable.clear();
-                    recordsTable.rows.add(data.records);
-                    recordsTable.draw();
+                    // 检查数据是否有变化
+                    if (currentData.length !== data.records.length) {
+                        hasChanges = true;
+                    } else {
+                        // 比较每条记录
+                        for (let i = 0; i < data.records.length; i++) {
+                            if (JSON.stringify(currentData[i]) !== JSON.stringify(data.records[i])) {
+                                hasChanges = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    // 只在数据有变化时更新表格
+                    if (hasChanges) {
+                        recordsTable.clear();
+                        recordsTable.rows.add(data.records);
+                        // 恢复排序状态
+                        recordsTable.order(currentOrder);
+                        // 恢复页码并避免重绘
+                        recordsTable.page(currentPage).draw(false);
+                    }
                 }
             })
-            .catch(error => console.error('Error loading records:', error));
+            .catch(error => console.error('加载记录失败:', error));
     }
 </script>
 </body>

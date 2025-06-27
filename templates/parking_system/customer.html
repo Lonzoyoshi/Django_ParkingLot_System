@@ -94,7 +94,7 @@
 
     <script>
         function updateInfo() {
-            fetch('/parking/stats/')
+            fetch('/parking/get_stats/')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('total-spaces').textContent = data.total_spaces;

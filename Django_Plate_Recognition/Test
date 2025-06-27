@@ -1,0 +1,21 @@
+# 开放入站规则
+netsh advfirewall firewall add rule name="Django_8000_in" dir=in action=allow protocol=TCP localport=8000
+
+# 开放出站规则
+netsh advfirewall firewall add rule name="Django_8000_out" dir=out action=allow protocol=TCP localport=8000
+
+## 删除入站规则
+netsh advfirewall firewall delete rule name="Django_8000_in" protocol=TCP localport=8000
+#
+# 删除出站规则
+netsh advfirewall firewall delete rule name="Django_8000_out" protocol=TCP localport=8000
+
+# 查看所有防火墙规则
+netsh advfirewall firewall show rule name=all
+
+# 查看特定端口规则
+netsh advfirewall firewall show rule name="Django_8000_in"
+
+python manage.py runserver <ip>:8000
+每次使用前用ipconfig查看IP地址
+其他设备访问则http://<IP地址>:8000/

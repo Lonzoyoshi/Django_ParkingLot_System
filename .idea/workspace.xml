@@ -4,144 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c391e4b-33f6-4cc3-9bb5-5c0689e08237" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Django_Plate_Recognition.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plate_Recognition/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/ccpd_process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/argoverse_hd.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/coco.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/coco128.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/hyp.finetune.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/hyp.scratch.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/plateAndCar.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/retinaface2yolo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/scripts/get_argoverse_hd.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/scripts/get_coco.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/scripts/get_voc.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/train2yolo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/val2yolo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/val2yolo_for_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/voc.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/data/widerface.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/demo.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/detect_demo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/detect_plate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/export.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/hubconf.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/image/README/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/image/README/105384078.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/image/README/test_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/image/README/weixian.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/Quicker_20220930_180856.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/Quicker_20220930_180919.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/Quicker_20220930_180938.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/Quicker_20220930_181044.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/double_yellow.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/hongkang1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/moto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/police.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/shi_lin_guan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/single_blue.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/single_green.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/single_yellow.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/tmp8F1F.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/tmpA5E3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/imgs/xue.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/json2yolo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/blazeface.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/blazeface_fpn.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/common.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/experimental.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5l.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5l6.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5m.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5m6.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5n-0.5.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5n.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5n6.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5s.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/models/yolov5s6.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/onnx_infer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/openvino_infer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/plate_recognition/double_plate_split_merge.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/plate_recognition/plateNet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/plate_recognition/plate_rec.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/readme/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (4).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (5).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test/a (6).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/test_widerface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/imgs/yolov5l-face.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/imgs/yolov5m-face.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/imgs/yolov5n-0.5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/imgs/yolov5n-face.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/imgs/yolov5s-face.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/readme_CN.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/sample.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/speed.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/torch2trt/trt_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/train.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/activations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/autoanchor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/aws/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/aws/mime.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/aws/resume.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/aws/userdata.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/cv_puttext.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/datasets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/face_datasets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/general.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/google_app_engine/app.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/google_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/infer_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/plots.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/torch_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/wandb_logging/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/wandb_logging/log_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/utils/wandb_logging/wandb_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/weights/download_weights.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/weights/plate_detect.pt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/weights/plate_rec_color.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/widerface_evaluate/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/widerface_evaluate/box_overlaps.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/widerface_evaluate/evaluation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoloV5_Plate/widerface_evaluate/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parking_system/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/zh.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/entry_exit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/image_detection.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/live_camera.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/load_params.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/loading.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/predict.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/result.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Plate_Recognition/video_detection.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/parking_system/cameras.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/parking_system/customer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/parking_system/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/parking_system/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/parking_system/manage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/parking_system/register.html" afterDir="false" />
+    <list default="true" id="4c391e4b-33f6-4cc3-9bb5-5c0689e08237" name="更改" comment="2025/6/17 第一版">
+      <change afterPath="$PROJECT_DIR$/Django_Plate_Recognition/Test" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Qt_Browser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test/Secu_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test/generate_performance_report.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test/locustfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test/test_operation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test/test_parking_record.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test/test_parking_update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test/test_screenshot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test/test_security.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parking_system/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/parking_system/logs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_image/test_plate.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoloV5_Plate/detect_plate.py" beforeDir="false" afterPath="$PROJECT_DIR$/YoloV5_Plate/detect_plate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parking_system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/parking_system/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/parking_system/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/parking_system/customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/parking_system/manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/parking_system/manage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -173,43 +54,143 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django 服务器.Django_Plate_Recognition.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "M:/A_DeepLearning/Django_Plate_Recognition/templates/parking_system",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.language.and.region",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django 服务器.Django_Plate_Recognition.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python 测试.test_parking_update.TestParkingUpdate.test_concurrent_updates 的 Python 测试.executor&quot;: &quot;Run&quot;,
+    &quot;Python.create_test_dataset.executor&quot;: &quot;Run&quot;,
+    &quot;Python.fuck.executor&quot;: &quot;Run&quot;,
+    &quot;Python.plot_accuracy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_plate_recognition.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;M:/A_DeepLearning/Django_Plate_Recognition/test_image&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.ApplicationConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="M:\A_DeepLearning\Django_Plate_Recognition\test_image" />
       <recent name="M:\A_DeepLearning\Django_Plate_Recognition\templates\parking_system" />
       <recent name="M:\A_DeepLearning\Django_Plate_Recognition" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="M:\A_DeepLearning\Django_Plate_Recognition\Test" />
       <recent name="M:\A_DeepLearning\Django_Plate_Recognition\templates" />
       <recent name="M:\A_DeepLearning\Django_Plate_Recognition\Plate_Recognition\templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django 服务器.Django_Plate_Recognition">
+    <configuration name="fuck" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Django_Plate_Recognition" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test/fuck.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plot_accuracy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Django_Plate_Recognition" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test/plot_accuracy.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Django_Plate_Recognition" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test/run_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_plate_recognition" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Django_Plate_Recognition" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test/test_plate_recognition.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Django_Plate_Recognition" type="Python.DjangoServer" factoryName="Django server">
       <module name="Django_Plate_Recognition" />
       <option name="ENV_FILES" value="" />
@@ -235,6 +216,31 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test_parking_update.TestParkingUpdate.test_concurrent_updates 的 Python 测试" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Django_Plate_Recognition" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_parking_update.TestParkingUpdate.test_concurrent_updates&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python 测试.test_parking_update.TestParkingUpdate.test_concurrent_updates 的 Python 测试" />
+        <item itemvalue="Python.test_plate_recognition" />
+        <item itemvalue="Python.plot_accuracy" />
+        <item itemvalue="Python.run_test" />
+        <item itemvalue="Python.fuck" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -256,10 +262,68 @@
       <workItem from="1750071631845" duration="5671000" />
       <workItem from="1750081379922" duration="2607000" />
       <workItem from="1750122834953" duration="24269000" />
+      <workItem from="1750153432947" duration="191000" />
+      <workItem from="1750156171985" duration="124000" />
+      <workItem from="1750164184311" duration="618000" />
+      <workItem from="1750167937644" duration="166000" />
+      <workItem from="1750168140579" duration="327000" />
+      <workItem from="1750168570132" duration="470000" />
+      <workItem from="1750212673189" duration="4604000" />
+      <workItem from="1750217954497" duration="1665000" />
+      <workItem from="1750239215995" duration="1523000" />
+      <workItem from="1750251464820" duration="314000" />
+      <workItem from="1750255878169" duration="50000" />
+      <workItem from="1750295409140" duration="565000" />
+      <workItem from="1750298732376" duration="4777000" />
+      <workItem from="1750305389430" duration="1214000" />
+      <workItem from="1750324584607" duration="1744000" />
+      <workItem from="1750382889624" duration="2752000" />
+      <workItem from="1750406577218" duration="15226000" />
+      <workItem from="1750468541778" duration="12304000" />
+      <workItem from="1750486699257" duration="4380000" />
+      <workItem from="1750491389058" duration="4462000" />
+      <workItem from="1750500211213" duration="8400000" />
+      <workItem from="1750736305480" duration="730000" />
+      <workItem from="1750818448120" duration="3678000" />
+      <workItem from="1750835328096" duration="695000" />
+      <workItem from="1750904959015" duration="4720000" />
+      <workItem from="1750990763401" duration="602000" />
     </task>
+    <task id="LOCAL-00001" summary="2025/6/17 第一版">
+      <option name="closed" value="true" />
+      <created>1750153612428</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750153612428</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2025/6/17 第一版" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025/6/17 第一版" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Django_Plate_Recognition$run_test.coverage" NAME="run_test 覆盖结果" MODIFIED="1750493924447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
+    <SUITE FILE_PATH="coverage/Django_Plate_Recognition$test_plate_recognition.coverage" NAME="test_plate_recognition 覆盖结果" MODIFIED="1750500909837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
+    <SUITE FILE_PATH="coverage/Django_Plate_Recognition$create_test_dataset.coverage" NAME="create_test_dataset 覆盖结果" MODIFIED="1750489888421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
+    <SUITE FILE_PATH="coverage/Django_Plate_Recognition$plot_accuracy.coverage" NAME="plot_accuracy 覆盖结果" MODIFIED="1750494972104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
+    <SUITE FILE_PATH="coverage/Django_Plate_Recognition$.coverage" NAME=" 覆盖结果" MODIFIED="1750500915173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
+    <SUITE FILE_PATH="coverage/Django_Plate_Recognition$fuck.coverage" NAME="fuck 覆盖结果" MODIFIED="1750492032967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
   </component>
 </project>

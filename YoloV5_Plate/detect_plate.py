@@ -9,10 +9,11 @@ import torch.backends.cudnn as cudnn
 from numpy import random
 import copy
 import numpy as np
-
+import csv
 from models.experimental import attempt_load
 from utils.datasets import letterbox
-from utils.general import check_img_size, non_max_suppression_face, apply_classifier, scale_coords, xyxy2xywh, strip_optimizer, set_logging, increment_path
+from utils.general import check_img_size, non_max_suppression_face, apply_classifier, scale_coords, xyxy2xywh, \
+    strip_optimizer, set_logging, increment_path
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized
 from utils.cv_puttext import cv2ImgAddText
@@ -22,6 +23,7 @@ from plate_recognition.double_plate_split_merge import get_split_merge
 # 定义颜色
 clors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), (0, 255, 255)]
 danger = ['危', '险']
+
 
 # 四个点按照左上、右上、右下、左下排列
 def order_points(pts):
@@ -33,6 +35,7 @@ def order_points(pts):
     rect[1] = pts[np.argmin(diff)]
     rect[3] = pts[np.argmax(diff)]
     return rect
+
 
 # 透视变换得到车牌小图
 def four_point_transform(image, pts):
@@ -53,10 +56,12 @@ def four_point_transform(image, pts):
     warped = cv2.warpPerspective(image, M, (maxWidth, maxHeight))
     return warped
 
+
 # 加载检测模型
 def load_model(weights, device):
     model = attempt_load(weights, map_location=device)  # load FP32 model
     return model
+
 
 # 返回到原图坐标
 def scale_coords_landmarks(img1_shape, coords, img0_shape, ratio_pad=None):
@@ -79,6 +84,7 @@ def scale_coords_landmarks(img1_shape, coords, img0_shape, ratio_pad=None):
     coords[:, 6].clamp_(0, img0_shape[1])  # x4
     coords[:, 7].clamp_(0, img0_shape[0])  # y4
     return coords
+
 
 # 获取车牌坐标以及四个角点坐标并获取车牌号
 def get_plate_rec_landmark(img, xyxy, conf, landmarks, class_num, device, plate_rec_model, is_color=False):
@@ -105,7 +111,8 @@ def get_plate_rec_landmark(img, xyxy, conf, landmarks, class_num, device, plate_
     if not is_color:
         plate_number, rec_prob = get_plate_result(roi_img, device, plate_rec_model, is_color=is_color)  # 对车牌小图进行识别
     else:
-        plate_number, rec_prob, plate_color, color_conf = get_plate_result(roi_img, device, plate_rec_model, is_color=is_color)
+        plate_number, rec_prob, plate_color, color_conf = get_plate_result(roi_img, device, plate_rec_model,
+                                                                           is_color=is_color)
     result_dict['rect'] = rect  # 车牌roi区域
     result_dict['detect_conf'] = conf  # 检测区域得分
     result_dict['landmarks'] = landmarks_np.tolist()  # 车牌角点坐标
@@ -124,14 +131,13 @@ def write_plate_result(plate_no, plate_color, save_path):
     """将车牌信息增量写入txt文件"""
     result_txt = os.path.join(save_path, 'plate_results.txt')
 
-    # 如果文件大于1MB，清空文件
     if os.path.exists(result_txt) and os.path.getsize(result_txt) > 1024 * 1024:
         open(result_txt, 'w').close()
 
-    # 追加模式写入
     with open(result_txt, 'a', encoding='utf-8') as f:
         f.write(f"{plate_no},{plate_color}\n")
-        f.flush()  # 立即刷新缓冲区
+        f.flush()
+
 
 def detect_Recognition_plate(model, orgimg, device, plate_rec_model, img_size, is_color=False):
     conf_thres = 0.3  # 得分阈值
@@ -167,13 +173,15 @@ def detect_Recognition_plate(model, orgimg, device, plate_rec_model, img_size, i
                 conf = det[j, 4].cpu().numpy()
                 landmarks = det[j, 5:13].view(-1).tolist()
                 class_num = det[j, 13].cpu().numpy()
-                result_dict = get_plate_rec_landmark(orgimg, xyxy, conf, landmarks, class_num, device, plate_rec_model, is_color=is_color)
+                result_dict = get_plate_rec_landmark(orgimg, xyxy, conf, landmarks, class_num, device, plate_rec_model,
+                                                     is_color=is_color)
                 if result_dict['plate_no']:  # 每次识别到车牌都写入文件
                     plate_no = result_dict['plate_no']
                     plate_color = result_dict.get('plate_color', '')
                     write_plate_result(plate_no, plate_color, save_path)  # 调用写入函数
                 dict_list.append(result_dict)
     return dict_list
+
 
 # 车牌结果画出来
 def draw_result(orgimg, dict_list, is_color=False):
@@ -206,17 +214,51 @@ def draw_result(orgimg, dict_list, is_color=False):
         orgimg = cv2.rectangle(orgimg, (rect_area[0], int(rect_area[1] - round(1.6 * labelSize[0][1]))),
                                (int(rect_area[0] + round(1.2 * labelSize[0][0])), rect_area[1] + labelSize[1]),
                                (255, 255, 255), cv2.FILLED)
-        orgimg = cv2ImgAddText(orgimg, result_p, rect_area[0], int(rect_area[1] - round(1.6 * labelSize[0][1])), (0, 0, 0), 21)
+        orgimg = cv2ImgAddText(orgimg, result_p, rect_area[0], int(rect_area[1] - round(1.6 * labelSize[0][1])),
+                               (0, 0, 0), 21)
     print(result_str)
     return orgimg
 
+
+def write_plate_result(plate_no, plate_color, save_path):
+    """将车牌信息写入txt文件"""
+    result_txt = os.path.join(save_path, 'plate_results.txt')
+
+    # 确保目录存在
+    os.makedirs(os.path.dirname(result_txt), exist_ok=True)
+
+    with open(result_txt, 'a', encoding='utf-8') as f:
+        f.write(f"{plate_no},{plate_color}\n")
+
+
+def save_detection_results(img_path, dict_list, save_path):
+    """保存检测结果到CSV文件"""
+    results_file = os.path.join(save_path, 'detection_results.csv')
+
+    # 检查文件是否存在,如果不存在则创建并写入表头
+    file_exists = os.path.exists(results_file)
+
+    with open(results_file, 'a', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        if not file_exists:
+            writer.writerow(['image_path', 'plate_number', 'plate_color'])
+
+        # 写入检测结果
+        for result in dict_list:
+            writer.writerow([
+                img_path,
+                result.get('plate_no', ''),
+                result.get('plate_color', '')
+            ])
 
 
 # 主函数
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--detect_model', nargs='+', type=str, default='weights/plate_detect.pt', help='model.pt path(s)')  # 检测模型
-    parser.add_argument('--rec_model', type=str, default='weights/plate_rec_color.pth', help='model.pt path(s)')  # 车牌识别+颜色识别模型
+    parser.add_argument('--detect_model', nargs='+', type=str, default='weights/plate_detect.pt',
+                        help='model.pt path(s)')  # 检测模型
+    parser.add_argument('--rec_model', type=str, default='weights/plate_rec_color.pth',
+                        help='model.pt path(s)')  # 车牌识别+颜色识别模型
     parser.add_argument('--is_color', type=bool, default=True, help='plate color')  # 是否识别颜色
     parser.add_argument('--image_path', type=str, help='source')  # 图片路径
     parser.add_argument('--img_size', type=int, default=640, help='inference size (pixels)')  # 网络输入图片大小
@@ -247,30 +289,30 @@ if __name__ == '__main__':
     if opt.input_type == 'camera':
         # 确保输出目录存在
         os.makedirs(save_path, exist_ok=True)
-        
+
         # 写入 done.txt
         done_file_path = os.path.join(save_path, 'done.txt')
         with open(done_file_path, 'w') as f:
             f.write('Camera ready')
-            
+
         cap = cv2.VideoCapture(opt.camera_id)  # 使用指定的摄像头ID
         while cap.isOpened():
             ret, frame = cap.read()
             if not ret:
                 break
-            dict_list = detect_Recognition_plate(detect_model, frame, device, 
-                                               plate_rec_model, opt.img_size, is_color=opt.is_color)
+            dict_list = detect_Recognition_plate(detect_model, frame, device,
+                                                 plate_rec_model, opt.img_size, is_color=opt.is_color)
             detected_frame = draw_result(frame, dict_list)
-            
+
             # 确保 temp.png 写入成功
             temp_image_path = os.path.join(save_path, 'temp.png')
             success = cv2.imwrite(temp_image_path, detected_frame)
             if not success:
                 print(f"Error writing temp.png to {temp_image_path}")
-            
+
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
-                
+
         cap.release()
         cv2.destroyAllWindows()
         print(f"实时检测已结束")
@@ -285,7 +327,9 @@ if __name__ == '__main__':
             img = cv_imread(image_path)
             if img.shape[-1] == 4:
                 img = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
-            dict_list = detect_Recognition_plate(detect_model, img, device, plate_rec_model, opt.img_size, is_color=opt.is_color)
+            dict_list = detect_Recognition_plate(detect_model, img, device, plate_rec_model, opt.img_size,
+                                                 is_color=opt.is_color)
+            # save_detection_results(image_path, dict_list, save_path)  # 保存检测结果
             ori_img = draw_result(img, dict_list)
             img_name = os.path.basename(image_path)
             save_img_path = os.path.join(save_path, 'detected_' + img_name)  # 添加前缀 'detected_'
@@ -300,7 +344,9 @@ if __name__ == '__main__':
                     continue
                 if img.shape[-1] == 4:
                     img = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
-                dict_list = detect_Recognition_plate(detect_model, img, device, plate_rec_model, opt.img_size, is_color=opt.is_color)
+                dict_list = detect_Recognition_plate(detect_model, img, device, plate_rec_model, opt.img_size,
+                                                     is_color=opt.is_color)
+                # save_detection_results(img_path, dict_list, save_path)  # 保存检测结果
                 ori_img = draw_result(img, dict_list)
                 img_name = os.path.basename(img_path)
                 save_img_path = os.path.join(save_path, 'detected_' + img_name)  # 添加前缀 'detected_'
@@ -329,7 +375,8 @@ if __name__ == '__main__':
             if not ret:
                 break
             img0 = copy.deepcopy(img)
-            dict_list = detect_Recognition_plate(detect_model, img, device, plate_rec_model, opt.img_size, is_color=opt.is_color)
+            dict_list = detect_Recognition_plate(detect_model, img, device, plate_rec_model, opt.img_size,
+                                                 is_color=opt.is_color)
             ori_img = draw_result(img, dict_list)
             t2 = cv2.getTickCount()
             infer_time = (t2 - t1) / cv2.getTickFrequency()

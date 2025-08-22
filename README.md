@@ -1,5 +1,4 @@
 # Django_ParkingLot_System
-# Django_ParkingLot_System
 # 停车场管理系统
 
 本项目是一个基于 Django 的停车场管理系统，集成了车牌识别、摄像头接入、数据管理和网页展示等基础功能，适用于小型局域网环境下的停车场信息化管理。

@@ -28,13 +28,13 @@
    cd <项目目录>
    pip install -r requirements.txt
 2. 配置数据库并迁移
-
+   ```bash
     python manage.py migrate
 3. 启动服务
-
+   ```bash
     python manage.py runserver
 4. 访问系统 
-
+   ```bash
     管理员/用户通过浏览器访问 http://<服务器IP>:8000/
    
 ## 目录结构
